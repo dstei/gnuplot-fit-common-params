@@ -11,6 +11,7 @@ eta = 1
 Pth = 1000
 
 # fit functions and fit
+# Note that tha variable "P" in the following is called "x".
 Vminus(x) = 1 - eta * 4 * sqrt(x/Pth ) / ( 1 + sqrt(x/Pth) )**2
 Vplus(x) = 1 + eta * 4 * sqrt(x/Pth) / ( 1 - sqrt(x/Pth) )**2
 
