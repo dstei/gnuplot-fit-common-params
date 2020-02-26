@@ -5,7 +5,7 @@ How to fit two models with shared parameters to two datasets with gnuplot
 
 Sometimes, several models and their corresponding measurements depend on the same set of parameters, let's call them <img src="https://render.githubusercontent.com/render/math?math=x"> and <img src="https://render.githubusercontent.com/render/math?math=\eta">. Fitting the models via parameter <img src="https://render.githubusercontent.com/render/math?math=x"> (and/or <img src="https://render.githubusercontent.com/render/math?math=\eta">) individually leads to different parameter values, where they should be the same.
 
-The example here are uncertainties of orthogonal quadratures of squeezed light: Both only depend on the pump parameter <img src="https://render.githubusercontent.com/render/math?math=x"> and the overall losses eta, but follow different models:
+The example here are uncertainties of orthogonal quadratures of squeezed light: Both only depend on the pump parameter <img src="https://render.githubusercontent.com/render/math?math=x"> and the overall losses <img src="https://render.githubusercontent.com/render/math?math=\eta">, but follow different models:
 
 <img src="https://render.githubusercontent.com/render/math?math=V^-=1-\eta\frac{4x}{(1%2Bx)^2}">,
 
@@ -27,8 +27,8 @@ The marker indicates which of the two models to use for the respective data poin
 Vminus(P) = 1 - eta * 4 * sqrt(P/Pth) / ( 1 + sqrt(P/Pth) )**2
 Vplus(P) = 1 + eta * 4 * sqrt(P/Pth) / ( 1 - sqrt(P/Pth) )**2
 
-fitfunc(P,y) = (y > 0)? Vminus(P) : Vplus(P)
+fitfunc(P,y) = (y > 0)? Vplus(P) : Vminus(P)
 
 fit fitfunc(P,y) data using 1:3:2 via eta, Pth
 ```
-The ternary operator `a? b : c` tells gnuplot to use function `b`, if `a` is true, else use function `c`. This can be extended to several such functions and more parameters (robustness of the fit might become an issue). For this to work, the data has to be arranged in a particular way. In this example, the first two columns contain the concatenated data sets, the third column the marker, which indicates to which data set the data point belongs with positive values for <img src="https://render.githubusercontent.com/render/math?math=V^-"> and other values for <img src="https://render.githubusercontent.com/render/math?math=V^%2B">. See gnuplot script and example data in this repo.
+The ternary operator `a ? b : c` tells gnuplot to use function `b`, if `a` is true, else use function `c`. This can be extended to several such functions and more parameters (robustness of the fit might become an issue). For this to work, the `data` has to be arranged in a particular way. In this example, the first two columns contain the concatenated data sets, the third column the marker, which indicates to which data set the data point belongs with positive values for <img src="https://render.githubusercontent.com/render/math?math=V^-"> and other values for <img src="https://render.githubusercontent.com/render/math?math=V^%2B">. See gnuplot script and example data in this repo.
