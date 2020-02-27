@@ -1,7 +1,4 @@
 # gnuplot-fit-common-params
-How to fit two models with shared parameters to two datasets with gnuplot
-
--------------------------------------------------------------------------
 
 Sometimes, several models and their corresponding measurements depend on the same set of parameters, let's call them <img src="https://render.githubusercontent.com/render/math?math=x"> and <img src="https://render.githubusercontent.com/render/math?math=\eta">. Fitting the models via parameter <img src="https://render.githubusercontent.com/render/math?math=x"> (and/or <img src="https://render.githubusercontent.com/render/math?math=\eta">) individually leads to different parameter values, where they should be the same.
 
