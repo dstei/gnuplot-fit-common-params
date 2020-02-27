@@ -34,6 +34,6 @@ fit fitfunc(P,y) data using 1:3:2 via eta, Pth
 The ternary operator `a ? b : c` tells gnuplot to use function `b`, if `a` is true, else use function `c`. This can be extended to several such functions and more parameters (robustness of the fit might become an issue). For this to work, the `data` has to be arranged in a particular way. In this example, the first two columns contain the concatenated data sets, the third column the marker, which indicates to which data set the data point belongs with positive values for <img src="https://render.githubusercontent.com/render/math?math=V^-"> and other values for <img src="https://render.githubusercontent.com/render/math?math=V^%2B">. See gnuplot script and example data in this repo.
  
 ### The result
-<img src="">
+<img src="https://github.com/dstei/gnuplot-fit-common-params/blob/master/plot.png?raw=true">
 
 Further information in the documentation under the key word 'multi-branch fitting' (see `help branch` in the gnuplot command line).
